@@ -1,0 +1,47 @@
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.aarthi.refresh</groupId>
+  <artifactId>selenium-java-testng-refresh</artifactId>
+  <version>1.0.0</version>
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <testng.version>7.11.0</testng.version>
+    <selenium.version>4.20.0</selenium.version>
+dependencies>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>${selenium.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>${testng.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.5.4</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+          </suiteXmlFiles>
+          <systemPropertyVariables>
+            <CLOUD_PROVIDER>${env.CLOUD_PROVIDER}</CLOUD_PROVIDER>
+            <BSTACK_USERNAME>${env.BSTACK_USERNAME}</BSTACK_USERNAME>
+            <BSTACK_ACCESS_KEY>${env.BSTACK_ACCESS_KEY}</BSTACK_ACCESS_KEY>
+          </systemPropertyVariables>
+       configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
