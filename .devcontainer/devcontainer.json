@@ -1,4 +1,3 @@
-
 {
   "name": "Java + Maven (Selenium/TestNG)",
   "image": "mcr.microsoft.com/devcontainers/java:21",
